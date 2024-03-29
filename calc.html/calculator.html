@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+ 
+    <style>
+       
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #535050;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .calculator {
+        background-color: #1a7373;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgb(0, 0, 0);
+        width: 300px;
+    }
+
+    .calculator h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #display {
+    width: 220px; 
+    height: 40px;
+    font-size: 24px;
+    margin: 5px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+}
+.input {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    margin: 5px;
+    cursor: pointer;
+    color: #000000;
+}
+.input1 {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    margin: 5px;
+    cursor: pointer;
+    color: rgb(2, 2, 2);
+    background-color: rgb(179, 134, 220);
+}
+
+    .input.operator {
+        background-color: rgb(0, 198, 191);
+        width: 50px;
+        color: #000000;
+    }
+
+    .input.equal {
+        background-color: khaki;
+        color: rgb(0, 0, 0);
+        
+    }
+
+    .input.clear {
+        background-color: #6f0600;
+        color: rgb(129, 23, 23);
+    }
+  
+   .input1:hover{
+    background-color: rgb(131, 162, 165);
+    
+
+   }
+   
+   .input.equal:hover{
+    background-color:rgb(153, 128, 119);
+   }
+   .input.operator:hover{
+    background-color: rgb(202, 155, 168);
+   }
+
+    </style>
+
+</head>
+<div class="calculator">
+
+    <h2>Simple Calculator</h2>
+     <input type="text" id="display" disabled class="input" >
+<svg id="clearIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+</svg>
+<br>
+    <input type="button" value="1" class="input1" onclick="addToDisplay('1')">
+    <input type="button" value="2" class="input1" onclick="addToDisplay('2')">
+    <input type="button" value="3" class="input1" onclick="addToDisplay('3')">
+    <input type="button" value="+" class="input operator" onclick="addToDisplay('+')"><br>
+    <input type="button" value="4" class="input1" onclick="addToDisplay('4')">
+    <input type="button" value="5" class="input1" onclick="addToDisplay('5')">
+    <input type="button" value="6" class="input1" onclick="addToDisplay('6')">
+    <input type="button" value="-" class="input operator" onclick="addToDisplay('-')"><br>
+    <input type="button" value="7" class="input1" onclick="addToDisplay('7')">
+    <input type="button" value="8" class="input1" onclick="addToDisplay('8')">
+    <input type="button" value="9" class="input1" onclick="addToDisplay('9')">
+    <input type="button" value="*" class="input operator" onclick="addToDisplay('*')"><br>
+    <input type="button" value="0" class="input1" onclick="addToDisplay('0')">
+    <input type="button" value="." class="input1" onclick="addToDisplay('.')">
+    <input type="button" value="=" class="input equal" onclick="calculate()">
+    
+    <input type="button" value="/" class="input operator" onclick="addToDisplay('/')">
+</div>
+
+        <script>
+         function addToDisplay(value) {
+        document.getElementById('display').value += value;
+    }
+
+    function calculate() {
+        var expression = document.getElementById('display').value;
+        var result = eval(expression);
+        document.getElementById('display').value = result;
+    }
+    document.getElementById('clearIcon').addEventListener('click', function() {
+    document.getElementById('display').value = ''; // Clear the input field
+});
+
+        </script>
+</body>
+</html>
